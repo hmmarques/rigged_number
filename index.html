@@ -15,28 +15,36 @@
     <meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image">
     <title>random number generator - Google Search</title>
     <script nonce="lVNpfwuxXHvPWyJFdrakQA==">
+        var number_of_tries = 0;
         function get_number() {
             var i;
             //document.getElementById("random_number_result").innerText = i;
             setTimeout(function(){ 
-                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%5;
+                // MAX VALUE ID "cLqHIb"
+                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%document.getElementById("cLqHIb").value ;
             }, 75);
             setTimeout(function(){ 
-                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%5;
+                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%document.getElementById("cLqHIb").value;
             }, 150);
             setTimeout(function(){ 
-                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%5;
+                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%document.getElementById("cLqHIb").value;
             }, 225);
             setTimeout(function(){ 
-                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%5;
+                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%document.getElementById("cLqHIb").value;
             }, 300);
-            setTimeout(function(){ 
-                document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%5;
-            }, 375);
 
-            setTimeout(function(){ 
+            if(number_of_tries < 2 && document.getElementById("global_number").value != ""){
+                setTimeout(function(){ 
                 document.getElementById("random_number_result").innerText = document.getElementById("global_number").value;
-            }, 375);
+                }, 375);
+                    number_of_tries++;
+                }
+                else{
+                    setTimeout(function(){ 
+                    document.getElementById("random_number_result").innerText = Math.round(Math.random()*100)%document.getElementById("cLqHIb").value;
+                }, 375);
+            }
+            
         }
         (function() {
             window.google = {
@@ -4388,7 +4396,7 @@
                                                         </csf-share>
                                                         <div id="kHe7nc">
                                                             <div class="eWckJ">
-                                                                <div class="HbFOo"><span id="random_number_result" class="gws-csf-randomnumber__result">5</span></div>
+                                                                <div class="HbFOo"><span id="random_number_result" class="gws-csf-randomnumber__result">9</span></div>
                                                                 <div class="OUpfEc">
                                                                     <div class="CxFL7e">
                                                                         <div class="VqbxPc">Min</div>
@@ -10691,7 +10699,7 @@
         <div id="dbg_"></div>
     </div>
     <div>
-        <input id="global_number" type="number">
+        <input style="width: 100%; border:0;" id="global_number" type="number">
     </div>
     <script src="./random number generator - Google Search_files/rs=ACT90oH5papFY7PhCCcQAoptYRlQfkV9yg"></script>
     <script src="./random number generator - Google Search_files/rs=ACT90oH5papFY7PhCCcQAoptYRlQfkV9yg(1)"></script>
@@ -10703,6 +10711,9 @@
     <script src="./random number generator - Google Search_files/m=BuhrE,GSWAyf,PygKfe,ujFhWe" async=""></script>
     <script src="./random number generator - Google Search_files/m=FBWYne,mfkHA,ptS8Ie" async=""></script>
     <script src="./random number generator - Google Search_files/m=sYcebf" async=""></script>
+    <script>
+        document.getElementById("random_number_result").innerText = 7 + Math.round(Math.random()*100)%4;
+    </script>
 </body>
 
 </html>
